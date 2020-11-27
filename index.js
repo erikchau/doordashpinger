@@ -42,6 +42,12 @@ exports.handler = async () => {
         sns.publish({
             Message: 'Store on DoorDash is Closed',
             PhoneNumber: '+18313590041'
+            MessageAttributes: {
+              'AWS.SNS.SMS.SMSType': {
+                DataType: 'String',
+                StringValue: 'Promotional'
+              }
+            }
         }, () =>  exit())
     }
 }
